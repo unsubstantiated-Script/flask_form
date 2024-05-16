@@ -38,7 +38,8 @@
                        required>
                 <label class="btn btn-outline-secondary" for="unemployed">Unemployed</label>
 
-                <input class="btn-check form-control" type="radio" id="self-employed" value="self-employed" name="occupation"
+                <input class="btn-check form-control" type="radio" id="self-employed" value="self-employed"
+                       name="occupation"
                        required>
                 <label class="btn btn-outline-secondary" for="self-employed">Self Employed</label>
 
@@ -48,6 +49,15 @@
             </div>
         </div>
         <button class="btn btn-secondary" type="submit">Submit</button>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class="mt-4 alert alert-success">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith %}
     </form>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
